@@ -31,14 +31,14 @@ const CategoryProduct = () => {
 
   return (
     <Layout>
-      <div className="container mt-3 category">
+      <div className="mt-3 category container my-0">
         <h4 className="text-center">Category - {category?.name}</h4>
-        <h6 className="text-center">{products?.length} result found </h6>
-        <div className="row">
-          <div className="col-md-9 offset-1">
-            <div className="d-flex flex-wrap">
+        <h6 className="text-center">{products?.length} found </h6>
+        <div className="row justify-content-evenly">
+          <div className="col">
+            <div className="d-flex flex-wrap justify-content-evenly">
               {products?.map((p) => (
-                <div className="card m-2" key={p._id}>
+                <div className="card my-5" key={p._id}>
                   <img
                     src={`/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top"

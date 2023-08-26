@@ -108,7 +108,7 @@ const HomePage = () => {
   };
   return (
     <p className="bg">
-      <Layout title={"Dharma hardware & electronics"}>
+      <Layout title={"Dharma hardware & electronics - home"}>
         <img
           src="/images/banner.jpg"
           className="banner-img"
@@ -118,10 +118,10 @@ const HomePage = () => {
         <div className="container-fluid row mt-3 home-page">
           <div className="col-md-3 filters">
             <div className="tp">
-              <h5 className="text-center">FILTERS</h5>
+              <h4 className="text-center">FILTERS</h4>
             </div>
-            <h6 className="text-center">Filter by category</h6>
-            <div className="d-flex flex-column">
+            <h6 className="text-center mt-4">Filter by category</h6>
+            <div className="d-flex flex-column p-2" >
               {categories?.map((c) => (
                 <Checkbox
                   className="fil"
@@ -134,7 +134,7 @@ const HomePage = () => {
             </div>
             {/* price filter */}
             <h6 className="text-center mt-4">Filter by price range</h6>
-            <div className="d-flex flex-column">
+            <div className="d-flex flex-column p-2">
               <Radio.Group onChange={(e) => setRadio(e.target.value)}>
                 {Prices?.map((p) => (
                   <div key={p._id}>
@@ -157,9 +157,9 @@ const HomePage = () => {
           </div>
           <div className="col-md-9 ">
             <div className="tp">
-              <h5 className="text-center">PRODUCTS</h5>
+              <h4 className="text-center">PRODUCTS</h4>
             </div>
-            <div className="d-flex flex-wrap">
+            <div className="d-flex flex-wrap justify-content-evenly">
               {products?.map((p) => (
                 <div className="card m-2" key={p._id}>
                   <img
@@ -179,13 +179,13 @@ const HomePage = () => {
                     </p>
                     <div className="card-name-price">
                       <button
-                        className="btn btn-warning m-1 p-2"
+                        className="btn btn-warning"
                         onClick={() => navigate(`/product/${p.slug}`)}
                       >
                         MORE DETAILS
                       </button>
                       <button
-                        className="btn btn-dark m-1 p-2"
+                        className="btn btn-dark"
                         onClick={() => {
                           setCart([...cart, p]);
                           localStorage.setItem(

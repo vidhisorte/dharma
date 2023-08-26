@@ -24,8 +24,8 @@ const Products = () => {
   }, []);
   return (
     <Layout>
-      <div className="row dashboard">
-        <div className="col-md-3">
+      <div className="row dashboard p-5 mt-4">
+        <div className="col-md-3 mt-1">
           <AdminMenu />
         </div>
         <div className="col-md-9 ">

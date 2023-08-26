@@ -79,40 +79,39 @@ const CartPage = () => {
       <div className=" cart-page">
         <div className="row">
           <div className="col-md-12">
-            <h1 className="text-center bg-light p-2 mb-1">
+            <h2 className="text-center bg-light p-2 mb-1">
               {!auth?.user
-                ? "Hello Guest"
-                : `Hello  ${auth?.token && auth?.user?.name}`}
+                ? "Hey guest"
+                : `Hey ${auth?.token && auth?.user?.name} !`}
               <p className="text-center">
                 {cart?.length
-                  ? `You Have ${cart.length} items in your cart ${
-                      auth?.token ? "" : "please login to checkout !"
+                  ? `You have ${cart.length} items in your cart ${
+                      auth?.token ? "" : ", login to checkout !"
                     }`
-                  : " Your Cart Is Empty"}
+                  : " Your cart is empty, add some items!"}
               </p>
-            </h1>
+            </h2>
           </div>
         </div>
-        <div className="container ">
+        <div className="container my-0 pb-5 pt-3">
           <div className="row ">
-            <div className="col-md-7  p-0 m-0">
+            <div className="col-md-8 pe-3 m-0">
               {cart?.map((p) => (
-                <div className="row card flex-row" key={p._id}>
+                <div className="row card p-2 my-3 me-2 flex-row" key={p._id}>
                   <div className="col-md-4">
                     <img
                       src={`/api/v1/product/product-photo/${p._id}`}
-                      className="card-img-top"
+                      className="card-img-top "
                       alt={p.name}
-                      width="100%"
-                      height={"130px"}
+                      
                     />
                   </div>
-                  <div className="col-md-4">
-                    <p>{p.name}</p>
+                  <div className="col-md-5">
+                    <p className="title mt-3 mb-1"> <b>{p.name}</b></p>
                     <p>{p.description.substring(0, 30)}</p>
-                    <p>Price : {p.price}</p>
+                    <p className="title mt-2"> <b>Price : ₹ {p.price}</b> </p>
                   </div>
-                  <div className="col-md-4 cart-remove-btn">
+                  <div className="col-md-3 cart-remove-btn">
                     <button
                       className="btn btn-danger"
                       onClick={() => removeCartItem(p._id)}
@@ -123,21 +122,21 @@ const CartPage = () => {
                 </div>
               ))}
             </div>
-            <div className="col-md-5 cart-summary ">
-              <h2>Cart Summary</h2>
+            <div className="col-md-4 my-3 p-3 cart-summary ">
+              <h3>CART SUMMARY</h3>
               <p>Total | Checkout | Payment</p>
               <hr />
-              <h4>Total : ₹{totalPrice()} </h4>
+              <h5>Total : ₹{totalPrice()} </h5>
               {auth?.user?.address ? (
                 <>
                   <div className="mb-3">
-                    <h4>Current Address</h4>
-                    <h5>{auth?.user?.address}</h5>
+                    <h6>Current Address : {auth?.user?.address}</h6>
+                    
                     <button
-                      className="btn btn-outline-warning"
+                      className="btn btn-warning m-3"
                       onClick={() => navigate("/dashboard/user/profile")}
                     >
-                      Update Address
+                      Update address
                     </button>
                   </div>
                 </>
@@ -145,21 +144,21 @@ const CartPage = () => {
                 <div className="mb-3">
                   {auth?.token ? (
                     <button
-                      className="btn btn-outline-warning"
+                      className="btn btn-warning m-3"
                       onClick={() => navigate("/dashboard/user/profile")}
                     >
                       Update Address
                     </button>
                   ) : (
                     <button
-                      className="btn btn-outline-warning"
+                      className="btn btn-warning m-3"
                       onClick={() =>
                         navigate("/login", {
                           state: "/cart",
                         })
                       }
                     >
-                      Please Login to checkout
+                      Login to checkout
                     </button>
                   )}
                 </div>
@@ -180,7 +179,7 @@ const CartPage = () => {
                     />
 
                     <button
-                      className="btn btn-warning"
+                      className="btn btn-dark mt-3"
                       onClick={handlePayment}
                       disabled={loading || !instance || !auth?.user?.address}
                     >
