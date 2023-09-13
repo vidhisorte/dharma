@@ -3,7 +3,7 @@ An E-Commerce web application for a local hardware store built using MERN stack.
 
 
 
-Link to website : [https://t.ly/dharmah&e](https://t.ly/dharmah&e)
+Link to website : [https://prussian-blue-pike-hem.cyclic.cloud/](https://prussian-blue-pike-hem.cyclic.cloud/)
 
 
 
