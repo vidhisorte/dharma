@@ -24,7 +24,7 @@
 }
 .home-page .card {
   background-color: rgba(255, 255, 255, 0.084);
-  width: 16rem;
+  width: 310px;
 }
 .home-page .card-name-price {
   display: flex;
@@ -57,6 +57,7 @@
 .home-page .card-img-top {
   height: 300px !important;
   width: 300px !important;
+  margin: 0 5px;
 }
 /* ==================
 filters
