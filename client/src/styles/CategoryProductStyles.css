@@ -6,7 +6,7 @@
 }
 .category .card {
   background-color: rgba(128, 128, 128, 0.097);
-  width: 18rem;
+  width: 310px;
 }
 
 
@@ -31,4 +31,6 @@
 
 .category .card-img-top {
   height: 300px !important;
+  width: 300px !important;
+  margin:5px !important;
 }
